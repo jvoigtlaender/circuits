@@ -1,0 +1,20 @@
+<html>
+
+  <head>
+    <title>Circuits</title>
+    <script type="text/javascript" src="elm.js"></script>
+  </head>
+
+  <body>
+    <div id="elm-circuits" />
+  </body>
+
+  <script type="text/javascript">
+    var elmDiv = document.getElementById('elm-circuits');
+    var elmInstance =
+      Elm.embed(Elm.Main, elmDiv,
+        { xExtent : 475, yExtent : 230 }
+      );
+  </script>
+
+</html>

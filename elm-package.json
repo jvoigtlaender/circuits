@@ -1,0 +1,24 @@
+{
+    "version": "1.0.0",
+    "summary": "Playing with electronic circuits",
+    "repository": "https://github.com/jvoigtlaender/circuits.git",
+    "license": "BSD3",
+    "source-directories": [
+        "src"
+    ],
+    "exposed-modules": [],
+    "dependencies": {
+        "circuithub/elm-list-extra": "3.9.0 <= v < 4.0.0",
+        "circuithub/elm-maybe-extra": "1.6.0 <= v < 2.0.0",
+        "dasch/elm-basics-extra": "1.0.0 <= v < 2.0.0",
+        "eeue56/elm-flat-matrix": "2.0.3 <= v < 3.0.0",
+        "elm-lang/core": "3.0.0 <= v < 4.0.0",
+        "evancz/automaton": "1.1.0 <= v < 2.0.0",
+        "evancz/elm-effects": "2.0.1 <= v < 3.0.0",
+        "evancz/elm-html": "4.0.2 <= v < 5.0.0",
+        "evancz/start-app": "2.0.2 <= v < 3.0.0",
+        "imeckler/ratio": "2.0.0 <= v < 3.0.0",
+        "jvoigtlaender/elm-drag": "1.0.0 <= v < 2.0.0"
+    },
+    "elm-version": "0.16.0 <= v < 0.17.0"
+}
