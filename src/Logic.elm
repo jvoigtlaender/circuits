@@ -196,7 +196,7 @@ onLamps lamps powers connections allPorts =
 
         potential i =
             if i == ground then
-                Just (Ratio.fromInt 0)
+                Just zero
             else
                 Array.get i potentials
     in
@@ -248,7 +248,7 @@ gaussJordan n =
                             let
                                 m' =
                                     swapIfNecessary i j m
-                                        |> Matrix.set i i (Ratio.fromInt 1)
+                                        |> Matrix.set i i one
                                         |> flip (List.foldl (\c -> Matrix.update c i (flip Ratio.divide v))) [i + 1..n]
                             in
                                 List.foldl
@@ -257,7 +257,7 @@ gaussJordan n =
                                             f =
                                                 Ratio.negate (safeGet i r m')
                                         in
-                                            Matrix.set i r (Ratio.fromInt 0)
+                                            Matrix.set i r zero
                                                 >> flip (List.foldl (\c -> Matrix.update c r (Ratio.add (Ratio.multiply f (safeGet c i m'))))) [i + 1..n]
                                     )
                                     m'
@@ -273,7 +273,7 @@ gaussJordan n =
                             k =
                                 Ratio.negate (safeGet i r m)
                         in
-                            Matrix.set i r (Ratio.fromInt 0)
+                            Matrix.set i r zero
                                 >> flip (List.foldl (\c -> Matrix.update c r (Ratio.add (Ratio.multiply k (safeGet c i m))))) [i + 1..n]
                     )
                     m
@@ -289,3 +289,11 @@ safeGet i j m =
 
         Just x ->
             x
+
+
+zero =
+    Ratio.fromInt 0
+
+
+one =
+    Ratio.fromInt 1
