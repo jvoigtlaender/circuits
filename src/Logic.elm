@@ -189,7 +189,7 @@ onLamps lamps powers connections allPorts =
 
         potentials =
             withDefault Array.empty <|
-                -- if List.any (\i -> safeGet i i solution /= Ratio.fromInt 1) [0..ground - 1] then
+                -- if List.any (\i -> safeGet i i solution /= Ratio.fromInt 1) [0..ground - 1] then -- actually, the /= test should better be done differently
                 --  Nothing
                 -- else
                 Matrix.getColumn ground solution
@@ -205,7 +205,7 @@ onLamps lamps powers connections allPorts =
                 ( l
                 , case ( potential (index ( l, 0 )), potential (index ( l, 1 )) ) of
                     ( Just p0, Just p1 ) ->
-                        p0 /= p1
+                        Ratio.numerator (Ratio.add p0 (Ratio.negate p1)) /= 0
 
                     _ ->
                         False
@@ -240,7 +240,7 @@ gaussJordan n =
                     Debug.crash "IMPOSSIBLE!"
 
                 Just column ->
-                    case List.find (\( _, v ) -> v /= Ratio.fromInt 0) (List.drop i (Array.toIndexedList column)) of
+                    case List.find (\( _, v ) -> Ratio.numerator v /= 0) (List.drop i (Array.toIndexedList column)) of
                         Nothing ->
                             m
 
@@ -264,7 +264,7 @@ gaussJordan n =
                                     [i + 1..n - 1]
 
         backward i m =
-            if safeGet i i m == Ratio.fromInt 0 then
+            if Ratio.numerator (safeGet i i m) == 0 then
                 m
             else
                 List.foldl
