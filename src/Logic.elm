@@ -214,6 +214,7 @@ onLamps lamps powers connections allPorts =
             lamps
 
 
+-- published in http://package.elm-lang.org/packages/jvoigtlaender/elm-warshall
 warshall : Int -> Matrix Bool -> Matrix Bool
 warshall n matrix =
     let
@@ -223,6 +224,7 @@ warshall n matrix =
         List.foldl step matrix [0..n - 1]
 
 
+-- published in http://package.elm-lang.org/packages/jvoigtlaender/elm-gauss
 gaussJordan : Int -> Matrix Rational -> Matrix Rational
 gaussJordan n =
     let
