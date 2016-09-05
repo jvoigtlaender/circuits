@@ -9,3 +9,6 @@ Works best in Firefox. For example, tile rotation does not work in Internet Expl
 
 Play with it [here](https://jvoigtlaender.github.io/circuits).
 
+Demo:
+
+![Circuits Demo](demo.gif)
